@@ -7,7 +7,8 @@ if (video) video.play().then(() => document.querySelector('.scene--1').classList
 
 function updateStory() {
   const first = articles[0].offsetTop;
-  const last = articles.at(-1).offsetTop + articles.at(-1).offsetHeight - innerHeight;
+  const story = document.querySelector('.story');
+  const last = story.offsetTop + story.offsetHeight - innerHeight;
   progress.style.transform = `scaleX(${Math.max(0, Math.min(1, (scrollY - first) / (last - first)))})`;
   let current = 0;
   articles.forEach((article, i) => { if (article.getBoundingClientRect().top <= innerHeight * .48) current = i; });
