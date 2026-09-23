@@ -11,7 +11,8 @@ function updateStory() {
   progress.style.transform = `scaleX(${Math.max(0, Math.min(1, (scrollY - first) / (last - first)))})`;
   let current = 0;
   articles.forEach((article, i) => { if (article.getBoundingClientRect().top <= innerHeight * .48) current = i; });
-  scenes.forEach((scene, i) => scene.classList.toggle('active', i === current));
+  scenes.forEach((scene) => scene.classList.add('active'));
+  document.querySelector('.stage').style.setProperty('--hero-zoom', String(1 + Math.max(0, Math.min(1, (scrollY - first) / (last - first))) * .08));
   chapters.forEach((button, i) => button.classList.toggle('active', i === current));
 }
 addEventListener('scroll', updateStory, {passive:true});
