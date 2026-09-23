@@ -3,7 +3,7 @@ const chapters = [...document.querySelectorAll('.chapters button')];
 const articles = [...document.querySelectorAll('.story-copy article')];
 const progress = document.querySelector('.progress span');
 const video = document.querySelector('.scene video');
-video.play().then(() => document.querySelector('.scene--1').classList.add('video-ready')).catch(() => {});
+if (video) video.play().then(() => document.querySelector('.scene--1').classList.add('video-ready')).catch(() => {});
 
 function updateStory() {
   const first = articles[0].offsetTop;
